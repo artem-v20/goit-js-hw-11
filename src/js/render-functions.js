@@ -21,17 +21,29 @@ export function createGallery(images) {
         comments,
         downloads,
       }) => `
-    <li class="gallery-item">
-      <a href="${largeImageURL}">
-        <img src="${webformatURL}" alt="${tags}" />
-      </a>
-      <div class="info">
-        <p>Likes: ${likes}</p>
-        <p>Views: ${views}</p>
-        <p>Comments: ${comments}</p>
-        <p>Downloads: ${downloads}</p>
-      </div>
-    </li>`
+      <li class="gallery-item">
+        <a href="${largeImageURL}">
+          <img src="${webformatURL}" alt="${tags}" />
+        </a>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Likes</span>
+            <span class="value">${likes}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Views</span>
+            <span class="value">${views}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Comments</span>
+            <span class="value">${comments}</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Downloads</span>
+            <span class="value">${downloads}</span>
+          </div>
+        </div>
+      </li>`
     )
     .join('');
 
@@ -44,9 +56,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  loader.classList.add('hidden');
+  loader.classList.add('visible');
 }
 
 export function hideLoader() {
-  loader.classList.remove('hidden');
+  loader.classList.remove('visible');
 }

@@ -32,7 +32,7 @@ form.addEventListener('submit', e => {
       hideLoader();
 
       if (data.hits.length === 0) {
-        iziToast.info({
+        iziToast.error({
           message:
             'Sorry, there are no images matching your search query. Please try again!',
           position: 'topRight',
@@ -49,5 +49,9 @@ form.addEventListener('submit', e => {
         position: 'topRight',
       });
       console.error(error);
+    })
+    .finally(() => {
+      hideLoader();
+      input.value = '';
     });
 });
