@@ -29,8 +29,6 @@ form.addEventListener('submit', e => {
 
   getImagesByQuery(query)
     .then(data => {
-      hideLoader();
-
       if (data.hits.length === 0) {
         iziToast.error({
           message:
@@ -43,7 +41,6 @@ form.addEventListener('submit', e => {
       createGallery(data.hits);
     })
     .catch(error => {
-      hideLoader();
       iziToast.error({
         message: 'Oops! Something went wrong.',
         position: 'topRight',
